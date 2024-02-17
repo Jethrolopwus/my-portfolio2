@@ -8,7 +8,7 @@ import { TypeAnimation } from 'react-type-animation';
 const HeroSection = () => {
   return (
     <section>
-        <div className="grid grid-cols-1 sm:grid-cols-12">
+        <div className="grid grid-cols-1 sm:grid-cols-12 ">
             <div className="col-span-7 place-self-center text-center sm:text-left">
               <hi className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
@@ -19,7 +19,7 @@ const HeroSection = () => {
       sequence={[
       
         'Jethro Lopwus',
-        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        1000, 
         'Web Developer',
         1000,
         'Mentor',
@@ -29,15 +29,14 @@ const HeroSection = () => {
       ]}
       wrapper="span"
       speed={50}
-      // style={{ fontSize: '2em', display: 'inline-block' }}
       repeat={Infinity}
     />
               </hi> 
-              <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">A front end developer with expertise in HTML, CSS, JavaScript, React and Next Js and also an excellent team member who is able to add value to any organization.</p>
+              <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">A front end developer with expertise in HTML, CSS, JavaScript, tailwindcss, typescript, React and Next Js.</p>
               <div>
                 <button className="p-4 rounded-full w-full sm:w-fit mr-4 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 text-white border" >Hire Me</button>
-                <button className="p-1  mt-3 rounded-full w-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 sm:w-fit bg-transparent hover:bg-slate-800 text-white">
-                  <span className="block bg-slate-500 hover:bg-slate-800 rounded-full py-5 px-2">Download CV</span>
+                <button className="p-1 mt-3 rounded-full w-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 sm:w-fit bg-transparent hover:bg-slate-800 text-white">
+                  <span className="block bg-slate-500 hover:bg-slate-800 rounded-full py-5 px-2 ">Download CV</span>
                   </button>
               </div>
             </div>
