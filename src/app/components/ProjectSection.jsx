@@ -95,6 +95,7 @@ const filteredProjects = projectsData.filter((project) =>
             previewUrl={project.previewUrl}
             /> ))}
         </div>
+        <hr />
     </>
   )
 }
