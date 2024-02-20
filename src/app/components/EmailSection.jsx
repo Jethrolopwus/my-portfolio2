@@ -4,18 +4,20 @@ import React, {useState} from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { resolve } from 'styled-jsx/css';
 
 const EmailSection = () => {
     const [emailSubmitted, setEmailSubmitted] = useState(false);
+     const [data, setData] = useState({email: "", subject: " ", message: ""});
 
     const handlesubmit = async (e) => {
         e.preventDefault();
-        const data = {
-            email: e.target.email.value,
-            subject: e.target.subject.value,
-            message: e.target.message.value,
+        const object = {
+            email: data.email,
+            subject: data.subject,
+            message: data.message,
         }
-        const JSONdata = JSON.stringify(data);
+        const JSONdata = JSON.stringify(object);
         const endpoint = "/api/send";
 
         // Form the request for sending  data to server 
@@ -30,12 +32,13 @@ const EmailSection = () => {
             body: JSONdata,
         }
         const response = await fetch(endpoint, options);
-        const resData = await response.json();
-        // console.log(resData);
-        if(response.status === 200) {
-            console.log("message sent successfull");
-            setEmailSubmitted(true);
-        }
+        console.log(response);
+        // const resData = await response.json();
+        // // console.log(resData);
+        // if(response.status === 200) {
+        //     console.log("message sent successfull");
+        //     setEmailSubmitted(true);
+        // }
     } 
 
   return (
@@ -62,15 +65,15 @@ const EmailSection = () => {
             <form className="flex flex-col gap-6" onSubmit={handlesubmit}>
                 <div className="mb-6">
                 <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">Your Email</label>
-                <input type="email" id="email" name="email" className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3" required placeholder="Enter your email" />
+                <input type="email" id="email" name="email" onChange={(e)=>setData({...data, email: e.target.value})} className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3" required placeholder="Enter your email" />
                 </div>
                 <div className="mb-6">
                 <label htmlFor="subject" className="text-white block mb-2 text-sm font-medium">Subject</label>
-                <input type="text" id="subject" name="subject" className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"  placeholder="Enter your subject" />
+                <input type="text" id="subject" onChange={(e)=>setData({...data, subject: e.target.value})} name="subject" className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"  placeholder="Enter your subject" />
                 </div>
                 <div className="mb-6">
                     <label htmlFor="message" className="text-white block mb-2 text-sm font-medium">Message</label>
-                    <textarea name="message" id="message" className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3" placeholder=" please let us talk about..." />
+                    <textarea name="message" onChange={(e)=>setData({...data, message: e.target.value})} id="message" className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3" placeholder=" please let us talk about..." />
             
                 </div>
                 <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-5 rounded-lg w-full">Send Message</button>
