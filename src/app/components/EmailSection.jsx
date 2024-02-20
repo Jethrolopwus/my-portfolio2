@@ -33,18 +33,18 @@ const EmailSection = () => {
         }
         const response = await fetch(endpoint, options);
         console.log(response);
-        // const resData = await response.json();
-        // // console.log(resData);
-        // if(response.status === 200) {
-        //     console.log("message sent successfull");
-        //     setEmailSubmitted(true);
-        // }
+        const resData = await response.json();
+        // console.log(resData);
+        if(response.status === 200) {
+            console.log("message sent successfull");
+            setEmailSubmitted(true);
+        }
     } 
 
   return (
     
     <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
-        <div className=" ml-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 to-transparent rounded-full h-80 w-80  blur-lg z-0 absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div className=" ml-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-700 to-transparent rounded-full h-80 w-80  blur-lg z-0 absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
         <div className="z-10">
             <h4 className="text-xl font-bold text-white my-2">Let's Connect</h4>
             <p className="text-[#ADB7BE] mb-4 max-w-md">
