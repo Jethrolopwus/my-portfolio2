@@ -75,7 +75,7 @@ const EmailSection = () => {
                       <textarea name="message" onChange={(e)=>setData({...data, message: e.target.value})} id="message" className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3" placeholder=" please let us talk about..." />
               
                   </div>
-                  <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-5 rounded-lg w-full">Send Message</button>
+                  <button type="submit" className="bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-5 rounded-lg w-full">Send Message</button>
                   {/* we show success messag if email is send  */}
                   {
                       emailSubmitted &&(
