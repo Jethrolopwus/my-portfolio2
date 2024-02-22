@@ -9,55 +9,55 @@ const projectsData = [
     {
         id: 1,
         title: "Infinity Gem",
-        description: "project 1 description",
+        description: "An EdTech solution with over 100 students",
         image: "/images/infinity-gem.png",
-        gitUrl: "/",
-        previewUrl: "/",
+        gitUrl: "https://ig.bluehouseng.com/",
+        previewUrl: "https://ig.bluehouseng.com/",
         tag: ["All", "Web"]
     },
     {
         id: 2,
         title: "Bluehouseng",
-        description: "project 2 description",
+        description: "Bluehouse website",
         image: "/images/bluehouseng.png",
-        gitUrl: "/",
-        previewUrl: "/",
+        gitUrl: "https://www.bluehouseng.com/",
+        previewUrl: "https://www.bluehouseng.com/",
         tag: ["All", "Web"]
     },
     {
         id: 3,
         title: "Jos Techfest",
-        description: "project 3 description",
+        description: "A website to regiter for  tech festival in Jos Plateau state",
         image: "/images/jostechfest.png",
-        gitUrl: "/",
-        previewUrl: "/",
+        gitUrl: "https://tech-fest.bluehouseng.com/",
+        previewUrl: "https://tech-fest.bluehouseng.com/",
         tag: ["All", "Web"]
     },
     {
         id: 4,
         title: "Fitness app",
-        description: "project 4 description",
+        description: "Your best fitness web application",
         image: "/images/fitness-app.png",
-        gitUrl: "/",
-        previewUrl: "/",
+        gitUrl: "https://physical-fitness-web-app.vercel.app/",
+        previewUrl: "https://physical-fitness-web-app.vercel.app/",
         tag: ["All", "Web"]
     },
     {
         id: 5,
         title: "Cyfrin frontend",
-        description: "project 5 description",
+        description: "This is a block chain company that is into web3 training Just their home page",
         image: "/images/cyfrin.png",
-        gitUrl: "/",
-        previewUrl: "/",
+        gitUrl: "https://cyfrin-frontend.vercel.app/",
+        previewUrl: "https://cyfrin-frontend.vercel.app/",
         tag: ["All", "Web"]
      },
     {
         id: 6,
         title: "Meta",
-        description: "project 6 description",
+        description: "A simple revenue landing page for Metadata",
         image: "/images/revenue.png",
-        gitUrl: "/",
-        previewUrl: "/",
+        gitUrl: "https://revenue-app-frontend.vercel.app/",
+        previewUrl: "https://revenue-app-frontend.vercel.app/",
         tag: ["All", "Web"]
     }
 ]
@@ -92,13 +92,15 @@ const cardVariants = {
             isSelected={tag ==="Mobile"}
              />
         </div>
-        <ul ref={ref}  className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
             {filteredProjects.map((project, index) => (
                 <motion.li 
                 key={index} 
                 variants={cardVariants} 
                 initial="initial"
-                 animate={isInView ? "animate" : "initial"}>
+                 animate={isInView ? "animate" : "initial"}
+                 transition={{duration:0.3,delay: index * 0.4}}
+                 >
                     <ProjectCards
                     key={project.id} 
                     title={project.title}

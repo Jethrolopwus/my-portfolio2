@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCode, FaEyeSlash } from "react-icons/fa6";
 import Link from "next/link";
-// import {  } from 'react-icons/fa6';
+
 
 const ProjectCards = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
@@ -15,7 +15,7 @@ const ProjectCards = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
             href={gitUrl}
             className="h-14 w-14 mr-4 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
             legacyBehavior>
-            <FaCode className="h-10 w-10 text-[#ADB7BE]  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
+            <FaCode className="h-10 w-10 text-[#ADB7BE]  absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
           </Link>
           <Link
             href={previewUrl}

@@ -3,7 +3,7 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import Link from 'next/link';
-import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { resolve } from 'styled-jsx/css';
 
 const EmailSection = () => {
@@ -43,7 +43,7 @@ const EmailSection = () => {
 
   return (
       <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
-          <div className=" ml-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-700 to-transparent rounded-full h-80 w-80  blur-lg z-0 absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
+          <div className=" ml-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary-700 to-transparent rounded-full h-80 w-80  blur-lg z-0 absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
           <div className="z-10">
               <h4 className="text-xl font-bold text-white my-2">Let's Connect</h4>
               <p className="text-[#ADB7BE] mb-4 max-w-md">
@@ -52,11 +52,14 @@ const EmailSection = () => {
                    wether you have a question or you want to say hi, I will try to get back to you!
                    </p>
                    <div className='socials flex flex-row gap-2'>
-                      <Link href="github.com" legacyBehavior>
+                      <Link href="https://github.com/Jethrolopwus" legacyBehavior>
                           <FaGithub className=" text-white w-10 h-10"/>
                       </Link>
-                      <Link href="linkedin.com" legacyBehavior>
+                      <Link href="https://www.linkedin.com/in/jethro-lopwus-4b3285197/" legacyBehavior>
                           <FaLinkedin className='text-white w-10 h-10'/> 
+                      </Link>
+                      <Link href="https://web.facebook.com/jethro.lopwus/" legacyBehavior>
+                          <FaFacebook className='text-white w-10 h-10'/> 
                       </Link>
                    </div>
           </div>
