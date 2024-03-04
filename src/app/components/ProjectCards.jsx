@@ -2,7 +2,6 @@ import React from "react";
 import { FaCode, FaEyeSlash } from "react-icons/fa6";
 import Link from "next/link";
 
-
 const ProjectCards = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
     <div className="">
@@ -10,19 +9,23 @@ const ProjectCards = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
         className="h-52 md:h-72 rounded-t-xl relative group"
         style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
       >
-        <div className="overlay  items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
-          <Link
+        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
+          <a
             href={gitUrl}
+            target="_blank"  // Open link in a new tab
+            rel="noopener noreferrer"
             className="h-14 w-14 mr-4 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-            legacyBehavior>
+          >
             <FaCode className="h-10 w-10 text-[#ADB7BE]  absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
-          </Link>
-          <Link
+          </a>
+          <a
             href={previewUrl}
+            target="_blank"  // Open link in a new tab
+            rel="noopener noreferrer"
             className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-            legacyBehavior>
+          >
             <FaEyeSlash className="h-10 w-10 text-[#ADB7BE]  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
-          </Link>
+          </a>
         </div>
       </div>
       <div className="text-white mt-4 rounded-b-xl py-6 px-4">
