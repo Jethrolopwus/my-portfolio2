@@ -14,6 +14,7 @@ const TAB_DATA = [
         <li>CSS</li>
         <li>JavaScript</li>
         <li>Tailwindcss</li>
+        <li>typescript</li>
         <li>React</li>
         <li>Nextjs</li>
       </ul>
@@ -57,7 +58,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className='text-white'>
+    <section className='text-white' id="about">
         <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16'>
            <div>
             <Image 

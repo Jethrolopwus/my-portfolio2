@@ -79,7 +79,7 @@ const cardVariants = {
 }; 
 
   return (
-    <section >
+    <section id='project' >
         <h2 className='mt-4 text-white text-center text-xl font-bold'>My Projects</h2>
         <div className="text-white flex flex-row justify-center items-center gap-8 py-6">
            <ProjectTag onClick={handleTagChange} name="All"

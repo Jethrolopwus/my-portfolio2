@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import NavLink from './NavLink';
 import { MdOutlineClose } from "react-icons/md";
 import { FaBars } from "react-icons/fa6";
@@ -10,21 +10,34 @@ import MenuOverlay from './MenuOverlay';
 const NavLinks =[
     {
         title: "About",
-        path: "#about",
+        path: "about",
     },
     {
         title: "Projects",
-        path: "#projects",
+        path: "projects",
     },
     {
         title: "Contact",
-        path: "#contact",
+        path: "contact",
     }
 ]
+
+
 const  Navbar = () => {
+ 
+    const scrollToComponent = (id) => {
+        if(typeof document !== "undefined"){
+            
+            const target = document.getElementById(id);
+            if(target)
+
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    
+    };
     const [navbarOpen, setNavbaropen] = useState(false);
   return (
-    <nav className="fixed top-0 left-0 right-0 border border-white z-10 bg-[#501450] bg-opacity-80"> 
+    <nav className="fixed top-0 left-0 right-0 border border-white z-10 bg-[#110511] bg-opacity-80"> 
         <div className="flex flex-wrap lg:py-4 items-center justify-between mx-auto px-4  py-2 ">
             <Link href={"/"} className=" text-2xl md:text-5xl text-white font-semi-bold">
                 LOGO
@@ -41,7 +54,7 @@ const  Navbar = () => {
                 <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
                 {
                   NavLinks.map((link, index) =>(
-                    <li key={index}>
+                    <li key={index} onClick={scrollToComponent(link.path)} className="cursor-pointer">
                         <NavLink href={link.path} title={link.title} />
                     </li>
                   ))  
