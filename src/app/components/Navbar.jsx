@@ -27,11 +27,10 @@ const  Navbar = () => {
  
     const scrollToComponent = (id) => {
         if(typeof document !== "undefined"){
-            
+            console.log(id)
             const target = document.getElementById(id);
             if(target)
-
-            target.scrollIntoView({ behavior: "smooth" });
+                target.scrollIntoView({ behavior: "smooth" });
         }
     
     };
@@ -54,7 +53,7 @@ const  Navbar = () => {
                 <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
                 {
                   NavLinks.map((link, index) =>(
-                    <li key={index} onClick={scrollToComponent(link.path)} className="cursor-pointer">
+                    <li key={index} onClick={()=>scrollToComponent(link.path)} className="cursor-pointer">
                         <NavLink href={link.path} title={link.title} />
                     </li>
                   ))  

@@ -18,7 +18,7 @@ const EmailSection = () => {
       message: data.message,
     };
     const JSONdata = JSON.stringify(object);
-    const endpoint = "/api/send";
+    const endpoint = "/api/hello";
 
     // Form the request for sending  data to server
     const options = {
@@ -32,7 +32,7 @@ const EmailSection = () => {
       body: JSONdata,
     };
     const response = await fetch(endpoint, options);
-    console.log(response);
+    // console.log(response);
     const resData = await response.json();
     // console.log(resData);
     if (response.status === 200) {
