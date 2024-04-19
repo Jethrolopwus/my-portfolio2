@@ -79,8 +79,8 @@ const cardVariants = {
 }; 
 
   return (
-    <section id='project' >
-        <h2 className='mt-4 text-white text-center text-xl font-bold'>My Projects</h2>
+    <section id='projects' className='py-28' >
+        <h2 className=' text-white text-center  text-4xl  font-bold'>My Projects</h2>
         <div className="text-white flex flex-row justify-center items-center gap-8 py-6">
            <ProjectTag onClick={handleTagChange} name="All"
             isSelected={tag ==="All"}
