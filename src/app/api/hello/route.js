@@ -32,7 +32,7 @@ export async function POST(request) {
   <body>
   <div class="container">
     <h1>From: ${email}</h1>
-    <p>Dear Customer Jethro,</p>
+    <p>Dear Jethro,</p>
     <p>${message}</p>
     <p>Thank you!</p>
   </div> 
@@ -44,7 +44,7 @@ export async function POST(request) {
     status: 200,
   })
  } catch (error) {
- console.log(error) 
+//  console.log(error) 
   return new Response(JSON.stringify('failed'),{
     status: 500
   })
