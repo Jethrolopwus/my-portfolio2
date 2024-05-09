@@ -1,11 +1,6 @@
 "use client";
 import React from 'react';
-import dynamic from 'next/dynamic';
 
-const AnimatedNumbers = dynamic(() => {return import("react-animated-numbers");
-},
-// {ssr: false}
-);
 
 const Achievements = () => {
 
@@ -26,6 +21,21 @@ const Achievements = () => {
             postfix: "+",
         }
     ]
+    function addComma(number) {
+        // Convert the number to a string
+        let strNumber = String(number);
+    
+        // Split the string into integer and fractional parts (if any)
+        let parts = strNumber.split('.');
+    
+        // Add commas to the integer part
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    
+        // Join the integer and fractional parts (if any)
+        return parts.join('.');
+    }
+    
+    
 
   return (
     <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
@@ -36,19 +46,9 @@ const Achievements = () => {
                     <div key={index} className="flex flex-col items-center justify-center mx-4" >
                         <h2 className='text-white text-4xl font-bold'>
                             {Achievements.prefix}
-                            <AnimatedNumbers
-                            includeComma
-                            animateToNumber={parseInt(Achievements.value)}
-                            locale="en-US"
+                            <p
                             className="text-white text-4xl font-bold flex flex-row"
-                            configs={((_, index) =>{
-                                return{
-                                    mass: 1,
-                                    friction: 100,
-                                    tension: 140 * (index + 1), 
-                                }
-                            })}
-                            />
+                            >{addComma(Achievements.value)}</p>
                             {Achievements.postfix}
                             </h2>
                         <p className="text-[#ADB7BE] text-base">{Achievements.metric}</p>

@@ -2,7 +2,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image';
-import hero from "@/app/images/jethro.png";
+import hero from "@/images/jethro.png";
 import { TypeAnimation } from 'react-type-animation';
 import {motion} from "framer-motion";
 
