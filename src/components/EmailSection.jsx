@@ -1,16 +1,14 @@
-/* eslint-disable react/no-unescaped-entities */
+
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
-import { resolve } from "styled-jsx/css";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [data, setData] = useState({ email: "", subject: " ", message: "" });
+  const [data, setData] = useState({ email: "", subject: "", message: "" });
 
-  const handlesubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const object = {
       email: data.email,
@@ -20,36 +18,42 @@ const EmailSection = () => {
     const JSONdata = JSON.stringify(object);
     const endpoint = "/api/hello";
 
-    // Form the request for sending  data to server
+    // Form the request for sending data to the server
     const options = {
       // POST method because we are sending the data
       method: "POST",
-      // tell the server we aare sending a JSON
+      // Tell the server we are sending JSON
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
-      // body of the request which is the JSONdata we created above
+      // Body of the request which is the JSON data we created above
       body: JSONdata,
     };
-    const response = await fetch(endpoint, options);
-    // console.log(response);
-    const resData = await response.json();
-    // console.log(resData);
-    if (response.status === 200) {
-      console.log("message sent successfull");
-      setEmailSubmitted(true);
+
+    try {
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
+      if (response.status === 200) {
+        console.log("Message sent successfully");
+        setEmailSubmitted(true);
+        // Clear the form after successful submission
+        setData({ email: "", subject: "", message: "" });
+      } else {
+        console.log("Failed to send message", resData);
+      }
+    } catch (error) {
+      console.error("An error occurred while sending the message", error);
     }
   };
 
   return (
-    <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative" id="contact">
-      <div className=" ml-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary-700 to-transparent rounded-full h-80 w-80  blur-lg z-0 absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <section className="grid md:grid-cols-2 my-12 py-24 gap-4 relative" id="contact">
+      <div className="ml-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary-700 to-transparent rounded-full h-80 w-80 blur-lg z-0 absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
       <div className="z-10">
-        <h4 className="text-4xl font-bold text-white my-2">Let's Connect</h4>
+        <h4 className="text-4xl font-bold text-white my-2">Let&apos;s Connect</h4>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          I'm currently looking for opportunities, My inbox is always open.
-          wether you have a question or you want to say hi, I will try to get
+          I&apos;m currently looking for opportunities. My inbox is always open.
+          Whether you have a question or you want to say hi, I will try to get
           back to you!
         </p>
         <div className="socials flex flex-row gap-2">
@@ -76,8 +80,8 @@ const EmailSection = () => {
           </Link>
         </div>
       </div>
-      <div>
-        <form className="flex flex-col gap-6" onSubmit={handlesubmit}>
+      <div className="z-10">
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -89,6 +93,7 @@ const EmailSection = () => {
               type="email"
               id="email"
               name="email"
+              value={data.email}
               onChange={(e) => setData({ ...data, email: e.target.value })}
               className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"
               required
@@ -105,8 +110,9 @@ const EmailSection = () => {
             <input
               type="text"
               id="subject"
-              onChange={(e) => setData({ ...data, subject: e.target.value })}
               name="subject"
+              value={data.subject}
+              onChange={(e) => setData({ ...data, subject: e.target.value })}
               className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"
               placeholder="Enter your subject"
             />
@@ -120,10 +126,11 @@ const EmailSection = () => {
             </label>
             <textarea
               name="message"
-              onChange={(e) => setData({ ...data, message: e.target.value })}
               id="message"
+              value={data.message}
+              onChange={(e) => setData({ ...data, message: e.target.value })}
               className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"
-              placeholder=" please let us talk about..."
+              placeholder="Please let us talk about..."
             />
           </div>
           <button
@@ -132,10 +139,9 @@ const EmailSection = () => {
           >
             Send Message
           </button>
-          {/* we show success messag if email is send  */}
           {emailSubmitted && (
             <p className="text-green-600 text-sm mt-2">
-              Email Send Successfully
+              Email Sent Successfully
             </p>
           )}
         </form>
