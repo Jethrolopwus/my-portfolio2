@@ -1,5 +1,4 @@
 import  nodemailer from "nodemailer";
-// console.log(process.env.MAILER_PASSWORD);
 
 const transporter = nodemailer.createTransport({
   port: 465,
