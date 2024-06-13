@@ -84,6 +84,7 @@ const EmailSection = () => {
               className="text-white block mb-2 text-sm font-medium"
             >
               Your Email
+            </label>
             <input
               type="email"
               id="email"
@@ -93,7 +94,6 @@ const EmailSection = () => {
               required
               placeholder="Enter your email"
             />
-            </label>
           </div>
           <div className="mb-6">
             <label
@@ -101,6 +101,7 @@ const EmailSection = () => {
               className="text-white block mb-2 text-sm font-medium"
             >
               Subject
+            </label>
             <input
               type="text"
               id="subject"
@@ -109,7 +110,6 @@ const EmailSection = () => {
               className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"
               placeholder="Enter your subject"
             />
-            </label>
           </div>
           <div className="mb-6">
             <label
@@ -117,6 +117,7 @@ const EmailSection = () => {
               className="text-white block mb-2 text-sm font-medium"
             >
               Message
+            </label>
             <textarea
               name="message"
               onChange={(e) => setData({ ...data, message: e.target.value })}
@@ -124,7 +125,6 @@ const EmailSection = () => {
               className="bg-slate-300 border border-black placeholder-[#9CA2A9] text-white text-sm rounded-lg block w-full p-3"
               placeholder=" please let us talk about..."
             />
-            </label>
           </div>
           <button
             type="submit"
