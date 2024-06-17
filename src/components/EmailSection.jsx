@@ -18,15 +18,15 @@ const EmailSection = () => {
     const JSONdata = JSON.stringify(object);
     const endpoint = "/api/hello";
 
-    // Form the request for sending data to the server
+    
     const options = {
-      // POST method because we are sending the data
+  
       method: "POST",
-      // Tell the server we are sending JSON
+
       headers: {
         "Content-Type": "application/json",
       },
-      // Body of the request which is the JSON data we created above
+    
       body: JSONdata,
     };
 
