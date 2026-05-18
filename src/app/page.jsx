@@ -1,25 +1,23 @@
-import Image from "next/image";
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
+import CurrentFocus from "../components/CurrentFocus";
+import RecentMedia from "../components/RecentMedia";
+import ShortBio from "../components/ShortBio";
 import AboutSection from "../components/AboutSection";
-import ProjectSection from "../components/ProjectSection";
-import EmailSection from "../components/EmailSection";
 import Footer from "../components/Footer";
-import Achievements from "../components/Achievements";
-
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#0d2331]">
+    <main className="bg-white min-h-screen">
       <Navbar />
-      <div className="container mt-24 mx-auto px-12 py-4">
-      <HeroSection />
-      <Achievements/>
-      <AboutSection/>
-      <ProjectSection/>
-      <EmailSection />
+      <div className="max-w-2xl mx-auto px-6 pt-12 pb-8">
+        <HeroSection />
+        <CurrentFocus />
+        <RecentMedia />
+        <ShortBio />
+        <AboutSection />
       </div>
-      <Footer/>
+      <Footer />
     </main>
   );
 }

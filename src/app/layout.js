@@ -1,19 +1,16 @@
-import { Inter } from "next/font/google";
+import React, { Suspense } from "react";
 import "./globals.css";
-import { Suspense } from "react";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "My-portfolio",
-  description: "My personal portfolio website ",
+  title: "Jethro Lopwus",
+  description: "Jethro Lopwus — Software Engineer & Blockchain Researcher",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <Suspense fallback={<p>Loading...</p>}>
-        <body className={inter.className}>{children}</body>
+        <body className="antialiased">{children}</body>
       </Suspense>
     </html>
   );

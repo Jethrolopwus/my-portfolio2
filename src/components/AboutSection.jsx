@@ -1,104 +1,131 @@
-"use client";
-import React, {useTransition, useState} from 'react';
+import React from 'react';
 import Image from 'next/image';
-import dell from "@/images/dell.png";
-import TabButton from './TabButton';
-
-const TAB_DATA = [
-  {
-    title: "skills",
-    id: "skills",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Tailwindcss</li>
-        <li>typescript</li>
-        <li>React</li>
-        <li>Nextjs</li>
-      </ul>
-    )
-  },
-  {
-    title: "education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Code Plateau</li>
-        <li>Bluehouse Technologies</li>
-        <li>Plateau State University</li>
-
-      </ul>
-    )
-  },
-  {
-    title: "certification",
-    id: "certification",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Digital Skills Certification, Code Plateau</li>
-        <li>Digita Marketing Google for Africa</li>
-        <li>Front end Developer at Bluehouse Technologies</li>
-        <li>Bsc. Chemistry </li>
-       
-      </ul>
-    )
-  }
-]
+import jethro from '@/images/jethro.png';
+import { FaLinkedin } from 'react-icons/fa6';
+import { FaXTwitter } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
-  const [isPending, startTransition ] = useTransition();
-
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
-
   return (
-    <section className='text-white py-10' id="about">
-        <div className='md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16'>
-           <div>
-            <Image 
-            src={dell} alt="about-section" 
-            className="border-2  border-slate-900 " width={400} height={300}
-             />
-           </div>
-           <div className='mt-4 md:mt-0 text-left flex flex-col h-full'>
-            <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-            <p className='text-base md:text-lg'>I am a front end  web developer with a passion in creating interactive and responsive web application.
-                I have experience working with HTML , CSS, JavaScript, TailwindCSS, Typescript,  Git, React, Nextjs. I am an adict learner
-                looking to expand my knowledge and skill set. I am also a teram player and I am excited to work with others to create amazing applications. 
+    <section id="about" className="py-6">
+
+      {/* About me */}
+      <div className="mb-10">
+        <h2 className="text-xl font-bold text-blue-700 mb-4">About me:</h2>
+        <div className="flex flex-col sm:flex-row gap-8 items-start">
+          <div className="space-y-3 text-gray-800 text-base leading-relaxed flex-1">
+            <p>
+              It gives me joy to go deep into a protocol, a codebase, or a conversation with
+              another builder on the same journey of growth and discovery.
             </p>
-            <div className="flex flex-row justify-start mt-8">
-              <TabButton 
-                selectTab={() => handleTabChange("skills")} 
-                active={tab === "skills"}
-                > {" "}
-                 Skills {" "}
-              </TabButton>
-              <TabButton 
-                selectTab={() => handleTabChange("education")} 
-                active={tab === "education"}
-                > {" "}
-                 Education {" "}
-              </TabButton>
-              <TabButton 
-                selectTab={() => handleTabChange("certification")} 
-                active={tab === "certification"}
-                > {" "}
-                 Certification {" "}
-              </TabButton>
-            </div>
-              <div className="mt-8"> {TAB_DATA.find((t) => t.id === tab).content}
-
-              </div>
-           </div>
+            <p>
+              I am a software engineer and multichain blockchain researcher. My work spans Ethereum
+              Layer 2 solutions like Optimism rollups and Arbitrum Orbit chains, to understanding
+              high-performance chains like Solana at a cryptographic and architectural level. I care
+              about how blockchains actually work under the hood; consensus mechanisms, data
+              availability, sequencing, and the design tradeoffs that shape entire ecosystems.
+            </p>
+            <p>
+              Living with curiosity and intentionality, I ask the &quot;why&quot; behind every line of code
+              and every protocol design decision I encounter.
+            </p>
+            <p>
+              Compassion for the human experience within tech because behind every product and
+              every protocol is a team of real people trying to build something better.
+            </p>
+            <p>Some observations about my core values:</p>
+            <ul className="list-disc list-inside pl-4 space-y-2">
+              <li>
+                Deep curiosity is my greatest asset. Assumptions are starting points, not
+                conclusions; I let data, research, and feedback shape my thinking.
+              </li>
+              <li>
+                Code is a communication tool. Writing readable, maintainable code is as important
+                as writing code that works.
+              </li>
+              <li>
+                Multichain is the future. I believe the next generation of the internet will not be
+                built on one chain; and I am actively researching and building across that frontier.
+              </li>
+              <li>
+                Growth happens at the edges of comfort. I actively seek challenges that stretch my
+                understanding of blockchain infrastructure, software engineering, and people.
+              </li>
+              <li>
+                Community amplifies everything. Mentorship, open knowledge-sharing, and collaboration
+                across Africa&apos;s developer ecosystem are engines of progress I believe in deeply.
+              </li>
+              <li>
+                Purpose-driven work is sustainable. I build and research things I believe will
+                genuinely move people forward; not simply to ship or to impress.
+              </li>
+            </ul>
+          </div>
+          {/* Photo beside About me text */}
+          <div className="flex-shrink-0 sm:w-52">
+            <Image
+              src={jethro}
+              alt="Jethro Lopwus"
+              width={208}
+              height={260}
+              className="object-cover w-full"
+            />
+          </div>
         </div>
-    </section>
-  )
-}
+      </div>
 
-export default AboutSection
+      {/* Quick snapshot */}
+      <div>
+        <h2 className="text-xl font-bold text-blue-700 mb-6">A quick snapshot</h2>
+        <ul className="list-disc list-inside space-y-3 text-gray-800 text-base leading-relaxed pl-2">
+          <li>
+            Software engineer and multichain blockchain researcher — currently exploring L2
+            rollups, Arbitrum Orbit chains, and Solana&apos;s Proof of History architecture.
+          </li>
+          <li>
+            Frontend engineering background in React and Next.js; now building deeper into
+            blockchain infrastructure and decentralised systems.
+          </li>
+          <li>
+            Graduate of Code Plateau and Bluehouse Technologies and Blockfuse Labs, two of Nigeria&apos;s leading
+            developer training programmes.
+          </li>
+          <li>
+            Speaker and community builder: JosTechFest 2024, Cyfrin bootcamp cohorts, and
+            local developer meet-ups in Jos, Nigeria.
+          </li>
+          <li>
+            Holds a BSc. in Chemistry from Plateau State University; proof that great engineers
+            come from unexpected backgrounds.
+          </li>
+        </ul>
+      </div>
+
+      {/* Contact */}
+      <div className="mt-10 space-y-2">
+        <p className="text-base font-bold text-blue-700">Contact me:</p>
+        <div className="flex items-center gap-2 text-base">
+          <MdEmail className="text-blue-700 text-xl flex-shrink-0" />
+          <a href="mailto:lopwusjethro92@gmail.com" className="text-blue-700 underline hover:text-blue-900">
+            lopwusjethro92@gmail.com
+          </a>
+        </div>
+        <div className="flex items-center gap-2 text-base">
+          <FaXTwitter className="text-gray-900 text-lg flex-shrink-0" />
+          <a href="https://x.com/Jethrosmitt" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline hover:text-blue-900">
+            x.com/Jethrosmitt
+          </a>
+        </div>
+        <div className="flex items-center gap-2 text-base">
+          <FaLinkedin className="text-blue-600 text-xl flex-shrink-0" />
+          <a href="https://www.linkedin.com/in/jethro-lopwus-4b3285197/" target="_blank" rel="noopener noreferrer" className="text-blue-700 underline hover:text-blue-900">
+            linkedin.com/in/jethro-lopwus
+          </a>
+        </div>
+      </div>
+
+    </section>
+  );
+};
+
+export default AboutSection;
