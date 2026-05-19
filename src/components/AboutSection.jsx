@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import jethro from '@/images/jethro.png';
+import finejay from '@/images/finejay.jpeg';
 import { FaLinkedin } from 'react-icons/fa6';
 import { FaXTwitter } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
@@ -62,12 +62,12 @@ const AboutSection = () => {
             </ul>
           </div>
           {/* Photo beside About me text */}
-          <div className="flex-shrink-0 sm:w-52">
+          <div className="flex-shrink-0 sm:w-52 md:w-1/2">
             <Image
-              src={jethro}
+              src={finejay}
               alt="Jethro Lopwus"
-              width={208}
-              height={260}
+              width={600}
+              height={400}
               className="object-cover w-full"
             />
           </div>
